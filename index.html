@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="./plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./dist/theme/moon.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>React JS</h2>
+          <img data-src="./assets/img/react-logo.png" width="300px" alt="react-logo" />
+        </section>
+        <section>
+          <section>
+            <h2>What is React JS?</h2>
+          </section>
+          <section>
+            <p>
+              React JS is a JavaScript
+              <span class="fragment highlight-blue" data-fragment-index="3"> library </span> for building user
+              interfaces.
+            </p>
+            <p class="fragment" data-fragment-index="4">
+              With the help of this library it is much easier to make SPA programs.
+            </p>
+            <div>
+              <img
+                src="./assets/img/Angular.png"
+                alt="angular"
+                width="150px"
+                class="fragment"
+                data-fragment-index="1"
+              />
+              <img src="./assets/img/ember.svg" alt="ember" width="250px" class="fragment" data-fragment-index="2" />
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>What is SPA?</h2>
+          </section>
+          <section>
+            <p>
+              Single Page Application (SPA) - is a web application or website that interacts with the user by
+              dynamically rewriting the current web page with new data from the web server, instead of the default
+              method of a web browser loading entire new pages. The goal is faster transitions that make the website
+              feel more like a native app.
+            </p>
+          </section>
+          <section>
+            <h3>Multi Page Application</h3>
+            <img width="310px" src="./assets/img/index.png" alt="index" />
+            <img width="310px" src="./assets/img/products.png" alt="products" class="fragment" />
+            <img width="310px" src="./assets/img/contacts.png" alt="contacts" class="fragment" />
+          </section>
+          <section>
+            <h3>Single Page Application</h3>
+            <img src="./assets/img/spa-index.png" alt="index" />
+            <div>
+              <img class="fragment shrink" src="./assets/img/home-cmp.png" alt="home" />
+              <img class="fragment shrink" src="./assets/img/product-cmp.png" alt="prod" />
+              <img class="fragment shrink" src="./assets/img/contacts-cpm.png" alt="contacts" />
+            </div>
+          </section>
+        </section>
+        <section>
+          <section><h2>Components</h2></section>
+          <section>
+            <p>Component - there are complex UIs from small and isolated pieces of code.</p>
+          </section>
+          <section>
+            <div>
+              <h5>Class components</h5>
+              <div>
+                <pre><code data-line-numbers>
+class ShoppingList extends React.Component {
+  render() {
+    return (
+      &#60;div className="shopping-list">
+        <h1>Shopping List for {this.props.name}</h1>
+        <ul>
+          <li>Instagram</li>
+          <li>WhatsApp</li>
+          <li>Oculus</li>
+				</ul>
+			&#60;/div>
+    );
+  }
+}
+  			</code></pre>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div>
+              <h5>Function Components</h5>
+              <div>
+                <pre><code data-line-numbers>
+function Square(props) {
+  return (
+    &#60;button className="square" onClick={props.onClick}>
+      {props.value}
+		&#60;/button>
+  );
+}
+  			</code></pre>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div>
+              <h5>Components can be nested as deep as you want</h5>
+              <div>
+                <pre><code data-line-numbers>function Messages() {
+  return (
+    <div>
+		&#60;Message/>
+	</div>
+  );
+}
+  			</code></pre>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section><h2>Introducing JSX</h2></section>
+          <section>
+            <div>
+              <pre><code>const element = <h1>Hello, world!</h1>;
+</code></pre>
+            </div>
+            <p>It is called JSX, and it is a syntax extension to JavaScript.</p>
+          </section>
+          <section>
+            <h5>JSX tags a very simmilar to html, but have some differenties</h5>
+            <div>
+              <pre><code style="font-size: 12pt;" data-line-numbers="3,5,7,9">function Comment(props) {
+  return (
+    &#60;div className="Comment">
+      &#60;div className="UserInfo">
+        &#60;img className="Avatar" src={props.author.avatarUrl} alt={props.author.name}/>
+        &#60;div className="UserInfo-name">
+          {props.author.name}
+        &#60;/div>
+				&#60;button onClick=&#123;alert('hello')}>&#60;/button>
+      &#60;/div>
+    &#60;/div>
+  );
+}</code></pre>
+            </div>
+          </section>
+          <section>
+            <img src="./assets/img/jsx-to-html.png" alt="jsx-tohtml" />
+          </section>
+        </section>
+        <section>
+          <section><h2>Props</h2></section>
+          <section>
+            <img src="./assets/img/component.png" alt="data" />
+          </section>
+          <section>
+            <pre><code style="font-size: 12pt;" data-line-numbers="2,8-10">function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+function App() {
+  return (
+    <div>
+      <Welcome name="Sara" />
+      <Welcome name="Cahal" />
+      <Welcome name="Edite" />
+    </div>
+  );
+}</code></pre>
+          </section>
+          <section>
+            <h3 class="fragment">Prop drilling</h3>
+            <img src="./assets/img/prop-drilling.png" alt="prop-drilling" />
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Component Lifecycle</h2>
+            <div style="display: flex; justify-content: center; align-items: center">
+              <div>
+                <img width="300px" src="./assets/img/react-logo.png" alt="react" />
+              </div>
+              <div style="margin-left: 50px">
+                <ol style="font-size: 40pt">
+                  <li>Initialization</li>
+                  <li class="fragment highlight-blue" data-fragment-index="1">Mouting</li>
+                  <li class="fragment highlight-blue" data-fragment-index="1">Updating</li>
+                  <li class="fragment highlight-blue" data-fragment-index="1">Unmouting</li>
+                </ol>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h4>Class Components</h4>
+            <pre><code data-line-numbers>  componentDidMount() {
+    //Component has mounted
+  }
+  componentDidUpdate() {
+    //Component finished updating
+  }
+  componentWillUnmount() {
+    //Component is being removed from the DOM
+  }</code></pre>
+          </section>
+          <section>
+            <h4>Function Components</h4>
+            <pre><code data-line-numbers>useEffect(() => {
+    //Takes care of all 3 lifecycle methods
+  }, [Dependensies]);</code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>State</h2>
+          </section>
+          <section>
+            State is similar to props, but it is private and fully controlled by the component.
+            <pre><code data-line-numbers>state = {
+		user: "Jahor",
+		isAdmin: true,
+		notes: [],
+}</code></pre>
+            <div class="fragment">
+              <pre><code data-line-numbers>class Component extends React.Component {
+  constructor(props) &#123;	
+	  super(props);
+	  this.state = {
+			user: "Jahor",
+			isAdmin: true,
+			notes: [],
+	  }
+  }
+}
+</code></pre>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section><h2>Hooks</h2></section>
+          <section>
+            Hooks are a new addition in React 16.8. They let you use state and other React features without writing a
+            class.
+            <div class="fragment">
+              <pre><code>
+useState() // --> set & update state
+useEffect() // --> perform side effects in lifecycle
+</code></pre>
+            </div>
+          </section>
+          <section>
+            <h3>list of hooks</h3>
+            <div style="display: flex; justify-content: space-between">
+              <div>
+                <h5>basic hooks</h5>
+                <ul style="font-size: 20pt">
+                  <li>useState</li>
+                  <li>useEffect</li>
+                  <li>useContext</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Additional Hooks</h5>
+                <ul style="font-size: 20pt">
+                  <li>useReducer</li>
+                  <li>useCallback</li>
+                  <li>useMemo</li>
+                  <li>useRef</li>
+                  <li>useImperativeHandle</li>
+                  <li>useLayoutEffect</li>
+                  <li>useDebugValue</li>
+                  <li>useDeferredValue</li>
+                  <li>useTransition</li>
+                  <li>useId</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Library Hooks</h5>
+                <ul style="font-size: 20pt">
+                  <li>useSyncExternalStore</li>
+                  <li>useInsertionEffect</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>State Managment</h2>
+            <div style="display: flex; justify-content: space-between">
+              <div class="fragment">
+                <p>Component State</p>
+                <img src="./assets/img/component-state.jpg" alt="cs" />
+              </div>
+              <div class="fragment">
+                <p>Global State</p>
+                <img src="./assets/img/global-store.jpg" alt="gs" />
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; justify-content: space-between">
+              <div class="fragment">
+                <p>Contex API</p>
+                <img width="400px" src="./assets/img/react-ico.png" alt="gs" />
+              </div>
+              <div class="fragment">
+                <p>Redux</p>
+                <img width="350px" src="./assets/img/redux-png.png" alt="cs" />
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Virtual DOM</h2>
+            <img src="./assets/img/virtal-mem.png" alt="mem" />
+          </section>
+          <section>
+            <img src="./assets/img/virtal-dom-scheme.png" alt="scheme" />
+          </section>
+        </section>
+        <section>
+          <section><h2>Handling Events</h2></section>
+          <section>
+            <pre><code>&#60;button onClick={activateLasers}>
+  Activate Lasers
+&#60;/button></code></pre>
+          </section>
+          <section>
+            <a href="https://reactjs.org/docs/events.html">More events</a>
+          </section>
+        </section>
+        <section>thanks for watching!</section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
